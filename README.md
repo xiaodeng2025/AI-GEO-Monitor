@@ -11,6 +11,10 @@ For project context, platform-native data shapes, frozen boundaries, and current
 
 The repository contains the formal Extension source, tests, and the current public release notes.
 
+`main` represents the current supported public implementation. Earlier public
+commits may include legacy development components that are no longer part of
+the supported scope.
+
 ## Project overview
 
 The current Extension provides:

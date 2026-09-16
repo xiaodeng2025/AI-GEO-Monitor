@@ -11,6 +11,22 @@ Phase B — Four-platform Extension Integration: **COMPLETED / ACCEPTED / FROZEN
 | Yuanbao | COMPLETED / ACCEPTED / FROZEN | COMPLETED / ACCEPTED / FROZEN | COMPLETED / ACCEPTED / FROZEN |
 | Wenxin | COMPLETED / ACCEPTED / FROZEN | COMPLETED / ACCEPTED / FROZEN | COMPLETED / ACCEPTED / FROZEN |
 
+## Engineering Frozen Baseline
+
+- Tag: `phase-b-four-platform-extension-frozen`
+- Meaning: historical Phase B engineering baseline where the four-platform
+  Extension integrations were accepted and frozen.
+- This tag is immutable and does not move with later Public Repo cleanup or
+  release work. It is not the current Public Release tag.
+
+## Current Public Release
+
+- Release: `v0.1.0`
+- This is the first curated Public Release after the Public Repo scope curation.
+- External users should start from the current release or `main`.
+- The release contains the formal Unified Extension, focused tests, and public
+  documentation.
+
 ## Current supported scope
 
 - Platform detection and routing.
