@@ -72,6 +72,17 @@ Snapshots are evidence of the corresponding platform page, not a separate AI dat
 
 These differences are intentional platform-native behavior.
 
+## Repository scope
+
+The current primary implementation is `extension/ai-geo-monitor-unified/`.
+It is the frozen four-platform Extension for DeepSeek, Doubao, Yuanbao, and
+Wenxin. The `src/` tree is retained supporting code for the Node, Playwright,
+SQLite, and local tooling pipeline; some of it is legacy and is not the
+recommended Unified Extension entry point. Kimi-related code belongs to that
+legacy implementation and does not add Kimi to the current supported-platform
+scope. The local Product UI and SQLite pipeline are not a GEO backend or a
+remote Delivery architecture.
+
 ## Extensibility
 
 A new platform can add a platform adapter, preserve its native data semantics, and use a platform-appropriate reliable Snapshot method. New platform fields do not need to match existing platforms. Downstream normalization, when implemented, must not change or weaken Acquisition semantics.

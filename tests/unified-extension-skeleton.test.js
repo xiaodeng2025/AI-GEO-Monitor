@@ -810,7 +810,7 @@ test('adding a fake descriptor requires no router branch and preserves fail-clos
   const api = context.__AI_GEO_UNIFIED_PLATFORM_REGISTRY_API__;
   const extended = api.createPlatformRegistry([
     ...context.__AI_GEO_UNIFIED_PLATFORM_REGISTRY__,
-    { id: 'fake', exact_hosts: ['example.test'], bootstrap_script: 'platforms/fake/bootstrap.js', injection: { content_world: 'ISOLATED' }, capability: { status: 'skeleton_only' } }
+    { id: 'fake', exact_hosts: ['example.test'], bootstrap_script: 'platforms/fake/bootstrap.js', injection: { content_world: 'ISOLATED' } }
   ]);
   assert.equal(context.__AI_GEO_UNIFIED_PLATFORM_ROUTER__.resolvePlatform('https://example.test/chat', extended).id, 'fake');
   assert.equal(context.__AI_GEO_UNIFIED_PLATFORM_ROUTER__.resolvePlatform('https://example.test.evil/'), null);

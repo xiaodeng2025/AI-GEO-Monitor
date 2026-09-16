@@ -1,14 +1,19 @@
-# Public release preparation
+# Public release
 
-This repository is prepared as source material for a new public GitHub repository. The public repository should be created from audited current files and should begin with a clean history; the existing development and research history is not part of the public release.
+This Public Repo contains an audited selection of the current project source,
+tests, configuration, and public technical documentation. It starts with a
+clean public Git history; private research history and local runtime material
+are not part of this repository.
 
-Recommended public repository conventions:
+- Default branch: `main`
+- License: MPL-2.0
+- Frozen release tag: `phase-b-four-platform-extension-frozen`
+- Repository: <https://github.com/xiaodeng2025/AI-GEO-Monitor>
 
-- default branch: `main`;
-- first frozen release tag: `phase-b-four-platform-extension-frozen`;
-- project license: MPL-2.0, as provided in the root `LICENSE` file;
-- keep only audited source, tests, freeze conclusions, and research notes that contain no local paths, account state, private content, or exported artifacts.
+The current public implementation is the four-platform Unified Extension in
+`extension/ai-geo-monitor-unified/`. Local IndexedDB, debug, and export paths
+support acceptance and inspection. Remote Delivery and GEO backend services
+are not implemented.
 
-The current checkout has no GitHub remote and has not been pushed. Creating a repository, configuring a remote, creating a tag, and pushing are separate release actions and are intentionally outside this preparation step.
-
-Research evidence should be preserved. Material that contains browser profiles, Cookies, local databases, real conversations, raw Snapshots, private screenshots, debug dumps, or machine-specific state belongs in private archival storage rather than the public repository.
+The private research repository continues to retain research and historical
+materials that are outside the public release boundary.

@@ -1,40 +1,53 @@
 # Unified Extension
 
-This is the unified read-only Extension. It provides the
-registry-driven exact-host router, lifecycle/bootstrap status, and a plain-data
-observation publication boundary. Unit 2 ports the already-frozen Doubao
-observation adapter without changing the frozen spike.
+This directory contains the current four-platform Manifest V3 Extension. It
+uses an exact-host registry/router, platform-specific content and observation
+adapters, stable-observation triggers, and platform-native Snapshot handlers.
 
-The current descriptors cover only:
+## Supported platforms
 
-- `https://www.doubao.com/*`
-- `https://yuanbao.tencent.com/*`
-- `https://chat.deepseek.com/*`
-- `https://wenxin.baidu.com/*` (Wenxin Unified port passed offline review and Real Edge acceptance; the four-platform baseline is being frozen. Yuanbao post-stable publication churn remains a deferred stabilization issue.)
+The current frozen platform cohort is:
 
-The Doubao manifest entries additionally load its MAIN-world passive response
-probe and isolated-world adapter. DeepSeek loads its isolated-world frozen
-adapter. Yuanbao loads its document-start MAIN-world passive fetch/XHR observer
-and isolated-world frozen adapter. Each host loads only its matching platform
-entry; unsupported hosts receive no content script and
-therefore no adapter activation. The router uses descriptor host data; it has
-no platform-specific conditional branch.
+- DeepSeek — `https://chat.deepseek.com/*`
+- Doubao — `https://www.doubao.com/*`
+- Yuanbao — `https://yuanbao.tencent.com/*`
+- Wenxin — `https://wenxin.baidu.com/*`
 
-The Doubao adapter and response probe are copied from the frozen
-`doubao-readonly-spike` and only have the minimum glue needed to publish the
-same plain observation to the shared runtime. The DeepSeek adapter is copied
-from the frozen `deepseek-readonly-spike` with the same minimum publication
-glue. The Yuanbao adapter and document-start MAIN-world response observer are
-copied from the frozen `yuanbao-raw-observation-poc` with only the minimum
-Unified publication/package glue. Unified three-platform real Edge acceptance
-passed; all three standalone research assets remain unchanged.
+Each host loads only its matching platform entry. Unsupported hosts fail
+closed and do not activate an adapter.
 
-There is no service worker, permission, Core transport, SQLite integration,
-prompt automation, or Data Contract change. Passive network observation remains
-platform-specific: Doubao, Yuanbao, and Wenxin each use their own relevant
-passive probe where implemented; DeepSeek has no such observer. The shared
-runtime is platform-agnostic and does not interpret platform endpoints or
-response fields. The runtime status surface is
-`globalThis.__AI_GEO_UNIFIED_EXTENSION_RUNTIME_STATUS__`. The publication
-boundary accepts plain observation data and performs same-fingerprint in-memory
-dedupe only; it does not persist or transmit data.
+## Runtime and storage
+
+The Extension is a Manifest V3 package with:
+
+- background service worker: `background.js`;
+- permissions: `pageCapture` and `storage`;
+- platform content scripts and document-start passive observers where required;
+- local Snapshot persistence in Extension IndexedDB.
+
+The IndexedDB/debug/export path is a local acceptance and cache facility. It is
+not a GEO backend and does not implement remote Delivery. The current
+background worker captures the platform page, stores the native Snapshot
+locally, and reports capture/storage status through the debug surface.
+
+## Platform-native boundary
+
+Shared runtime code handles routing, lifecycle publication, fingerprint-based
+observation deduplication, and Snapshot triggering. Platform modules retain
+their native acquisition fields, readiness rules, source/citation semantics,
+and Snapshot artifact behavior. The project principle is **Unified entry, not
+unified platform data.**
+
+The four current Snapshot forms are intentionally different:
+
+- Doubao: raw MHTML;
+- DeepSeek: dead HTML;
+- Yuanbao: raw MHTML;
+- Wenxin: raw MHTML.
+
+## Scope
+
+The current Extension covers Detection, platform-native Acquisition and
+Observation, stable publication, and platform-native Snapshot generation.
+Delivery, remote storage, backend normalization, metrics, dashboards, APIs,
+and reports are outside this implementation.

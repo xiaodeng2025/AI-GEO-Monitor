@@ -6,29 +6,25 @@
       id: 'doubao',
       exact_hosts: ['www.doubao.com'],
       bootstrap_script: 'platforms/doubao/bootstrap.js',
-      injection: { content_world: 'ISOLATED', future_probe_world: 'MAIN' },
-      capability: { status: 'skeleton_only', observation: 'not_implemented' }
+      injection: { content_world: 'ISOLATED', future_probe_world: 'MAIN' }
     },
     {
       id: 'yuanbao',
       exact_hosts: ['yuanbao.tencent.com'],
       bootstrap_script: 'platforms/yuanbao/bootstrap.js',
-      injection: { content_world: 'ISOLATED', future_probe_world: 'MAIN' },
-      capability: { status: 'skeleton_only', observation: 'not_implemented' }
+      injection: { content_world: 'ISOLATED', future_probe_world: 'MAIN' }
     },
     {
       id: 'deepseek',
       exact_hosts: ['chat.deepseek.com'],
       bootstrap_script: 'platforms/deepseek/bootstrap.js',
-      injection: { content_world: 'ISOLATED', future_probe_world: null },
-      capability: { status: 'skeleton_only', observation: 'not_implemented' }
+      injection: { content_world: 'ISOLATED', future_probe_world: null }
     },
     {
       id: 'wenxin',
       exact_hosts: ['wenxin.baidu.com'],
       bootstrap_script: 'platforms/wenxin/bootstrap.js',
-      injection: { content_world: 'ISOLATED', future_probe_world: 'MAIN' },
-      capability: { status: 'skeleton_only', observation: 'not_implemented' }
+      injection: { content_world: 'ISOLATED', future_probe_world: 'MAIN' }
     }
   ];
 
