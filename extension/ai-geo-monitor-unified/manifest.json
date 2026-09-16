@@ -1,0 +1,78 @@
+{
+  "manifest_version": 3,
+  "name": "AI-GEO Monitor — Unified Extension Skeleton",
+  "version": "0.1.0",
+  "description": "Read-only registry-driven multi-platform Extension runtime skeleton.",
+  "permissions": ["pageCapture", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_ui": {
+    "page": "snapshot-debug.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.doubao.com/*"],
+      "js": ["platforms/doubao/response-probe.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://www.doubao.com/*"],
+      "js": [
+        "shared/platform-registry.js",
+        "shared/router.js",
+        "shared/observation-snapshot-trigger.js",
+        "shared/runtime.js",
+        "platforms/doubao/extension-snapshot.js",
+        "platforms/doubao/content.js",
+        "platforms/doubao/bootstrap.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://yuanbao.tencent.com/*"],
+      "js": [
+        "shared/platform-registry.js",
+        "shared/router.js",
+        "shared/observation-snapshot-trigger.js",
+        "shared/runtime.js",
+        "platforms/yuanbao/extension-snapshot.js",
+        "platforms/yuanbao/content.js",
+        "platforms/yuanbao/bootstrap.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://yuanbao.tencent.com/*"],
+      "js": ["platforms/yuanbao/page-response-observer.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://chat.deepseek.com/*"],
+      "js": [
+        "shared/platform-registry.js",
+        "shared/router.js",
+        "shared/observation-snapshot-trigger.js",
+        "shared/runtime.js",
+        "platforms/deepseek/extension-snapshot.js",
+        "platforms/deepseek/content.js",
+        "platforms/deepseek/bootstrap.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://wenxin.baidu.com/*"],
+      "js": ["platforms/wenxin/page-response-observer.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://wenxin.baidu.com/*"],
+      "js": ["shared/platform-registry.js", "shared/router.js", "shared/observation-snapshot-trigger.js", "shared/runtime.js", "platforms/wenxin/extension-snapshot.js", "platforms/wenxin/content.js", "platforms/wenxin/bootstrap.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

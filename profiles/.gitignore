@@ -1,0 +1,3 @@
+# Persistent browser profiles contain session state. Never commit them.
+*
+!.gitignore

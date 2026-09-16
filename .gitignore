@@ -1,0 +1,33 @@
+node_modules/
+data/*.sqlite
+data/*.sqlite-*
+artifacts/*
+!artifacts/.gitkeep
+profiles/*
+!profiles/.gitignore
+runtime-data/
+.env
+.env.*
+!.env.example
+npm-debug.log*
+
+# Local exports and review-only output. Keep formal Extension HTML source tracked.
+exports/
+debug-output/
+research-output/
+screenshots/
+local-data/
+
+# Page evidence exports and local browser/session material.
+*.mhtml
+browser-profiles/
+browser-profile/
+cookies/
+tokens/
+secrets/
+credentials/
+localStorage/
+sessionStorage/
+IndexedDB/
+*.sqlite
+*.sqlite-*
